@@ -1,0 +1,95 @@
+<div class="scrollable">
+	<div class="scrollable-content">
+		<div class="list-group text-center">
+			<!-- cục giới thiệu -->
+			<div class="list-group-item list-group-item-home">
+				<h1>
+					<font face="Georgia" color="009900"><b>TINY GARDEN<b/></font>
+				</h1>
+			</div>
+			
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<img src="/th.png" width="50" eight="5h0"> <br/><br/>
+				</div>
+				<div>
+					<center>
+					<table border="0px" width="300px" >
+				    <tr>
+				        <td class="home-heading">
+				        	<center>
+				        		Độ ẩm
+				        	</center>
+				        </td>
+				        <td class="home-heading">
+				        	<center>
+				        		Nhiệt độ
+				        	</center>
+				        </td>
+				    </tr>
+				    <tr>
+				        <td> 
+				        	<center>
+				        	<h3> {{humidity}} </h3>
+				        	</center>
+				        </td>
+				        <td>
+				        <center>
+				        	<h3> {{temperature}} </h3>
+				        </center>
+				        </td>
+				    </tr>
+				</table>
+				</center>
+				</div>
+			</div>
+			
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<img src="/doam.png" width="50" height="50"> <br/><br/>
+				</div>
+				<div>
+					<h4 class="home-heading">Độ ẩm đất</h4>
+					<h3>{{doAmAnalog}}</h3>
+					{{CamBienDoAm}}
+				</div>
+				
+			</div>
+			
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<img src="/brightness.png" width="50" height="50"> <br/><br/>
+				</div>
+				<div>
+					<h4 class="home-heading">Độ sáng</h4>
+					<h3>{{camBienAnhSang}}</h3>					
+				</div>
+				
+			</div>
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<img src="/control.png" width="50" height="50"> <br/><br/>
+				</div>
+				<div>
+					<h3 class="home-heading">Điều khiển</h3>
+					<div ng-repeat="delay_value in delays_status  track by $index">
+						{{$index ? "Đèn"  : "Máy bơm"}} đang {{delay_value ? "bật" : "tắt"}}
+						<input type="checkbox" ng-true-value="1" ng-false-value="0"
+						ng-change="changeDelay()" ng-model="delays_status[$index]" />										
+					</div>
+					<rzslider rz-slider-model="slider.value"></rzslider>
+				</div>
+			</div>
+			<div class="list-group-item list-group-item-home">
+				
+				<div>
+					<button class="button" ng-click="updateSensor()">
+						UPDATE
+					</div>
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
